@@ -214,13 +214,14 @@ If you want to dive deep into EVM bytecode, or EVM in general, [evm.codes](https
 
 Remember: stack machines follow LIFO principle. Last in, first out. The item on top of the stack is passed as the first argument to the opcode. So, if you want to do ```div(9, 3)``` your stack should look like this:
 
-```
+```solidity
 9    <---- Correct  Incorrect ---->    3
 3                                      9
 ```
 
 This means that we should PUSH the last parameters first.
-```
+
+```solidity
 PUSH1 3
 PUSH1 9
 DIV
