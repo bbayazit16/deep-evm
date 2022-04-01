@@ -234,7 +234,7 @@ Before we start coding, I want to explain a few opcodes:
 
 One trick is using CALLVALUE to push 0 on top of the stack. This will be 1 gas cheaper, and will be the same thing as long as there is no Ether sent to the contract. In our case, we don't verify function to be paid anyways, so we're good to go. You may also use ```RETURNDATASIZE``` instead of CALLVALUE. (Keep in mind that RETURNDATASIZE changes after your contract makes an external call. Our contract uses ecrecover, which is technically a call to another contract, hence why I used CALLVALUE. I'll be explaining why ecreover is an external call later.)
 
-I recommend you follow along with the upcoming opcodes using run & step into button [here.](https://tinyurl.com/yj44fk9y)
+I recommend you follow along with the upcoming opcodes using run & step button [here.](https://tinyurl.com/29r9aps2)
 
 Lets start:
 
@@ -273,9 +273,9 @@ Next comes ecrecover(). The EVM offers advanced functionalities using precompile
 ```solidity
 PUSH1 0x20 // Return size (32 bytes). Returned value is actually an address (20 bytes), but ecrecover returns "address right-aligned to 32 bytes".
 CALLVALUE // Return offset in memory (0x00).
-PUSH1 0x80 // Arguments size (128). 
+MSIZE // Arguments size (128). 
 CALLVALUE // From which place in memory our args begin. (0x00).
-PUSH1 1 // Address of ecreover().
+PUSH1 1 // Address of ecreover(). If you're deploying on Ethereum mainnet, you can use CHAINID.
 PUSH2 3000 // ECRECOVER() costs 3000 gas.
 STATICCALL // Call without modifying data. This is similar to calling a view/pure function from a different contract in Solidity.
 
@@ -308,15 +308,15 @@ RETURNDATASIZE // PUSH1 0x20.
 RETURN // return(0x20, 0x20)
 ```
 
-This contract is written in pure bytecode. It can also take inputs without zero-padding. However it is possible to shorten the byte-size of this contract (at the cost of extra gas). [Here](https://tinyurl.com/44nftzma) I have prepared a differrent version of the bytecode which uses calldatacopy to reduce the contract bytecode size. This version however requires input data to be zero-padded which means it costs 141 more gas compared to the former bytecode despite being smaller in size.
+This contract is written in pure bytecode. It can also take inputs without zero-padding. However it is possible to shorten the byte-size of this contract (at the cost of extra gas). [Here](https://tinyurl.com/ycyhy7ep) I have prepared a differrent version of the bytecode which uses calldatacopy to reduce the contract bytecode size. This version however requires input data to be zero-padded which means it costs 141 more gas compared to the former bytecode despite being smaller in size.
 
 ## Gas Costs (With Events Removed)
 
 - With Function Parameters: 27,002 gas.
 - Without Function Parameters: 26,590 gas.
 - Callback: 26,470 gas.
-- Bytecode Not-Zero-Padded: 26,059 gas.
-- Bytecode (Zero-Padded): 26,200 gas.
+- Bytecode Not-Zero-Padded: 26,058 gas.
+- Bytecode (Zero-Padded): 26,199 gas.
 
 Is it worth it? You decide!
 
