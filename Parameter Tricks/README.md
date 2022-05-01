@@ -32,11 +32,11 @@ This function takes:
 
 So the calldata should technically be 117 bytes, right? It is 164 bytes.
 
-# Why?
+## Why?
 
 Let's examine the calldata:
 
-```
+```bytecode
 0xaf1d06e83438e7f69dbe1b418705d87b2d75c1447939ed1a7c7eedc4ff4ba87739ed93e4000000000000000000000000000000000000000000000000000000000000001c05fd9519cf69e4cf6e9d9c456d22aceea8e67681f514dffc8836560f4bcd540a36f3572a1fde84e5e704c4c096dda84e8cf7766fa9a08067f82ec811b71d3fec0000000000000000000000000000018014a365cfc1ac5020b84b24678fc6af55
 ```
 
@@ -161,7 +161,7 @@ is crucial. This check prevents empty variables from being passed into ecrecover
 
 Using this method, we can add our parameters consecutively to calldata, without any zero padding.
 
-```
+```bytecode
 0x146368693438e7f69dbe1b418705d87b2d75c1447939ed1a7c7eedc4ff4ba87739ed93e41c05fd9519cf69e4cf6e9d9c456d22aceea8e67681f514dffc8836560f4bcd540a36f3572a1fde84e5e704c4c096dda84e8cf7766fa9a08067f82ec811b71d3fec0000018014A365Cfc1aC5020B84B24678Fc6af55
 ```
 
