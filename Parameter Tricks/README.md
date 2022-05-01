@@ -118,7 +118,7 @@ shl(224, calldataload(4))
 ```
 
 which results in:
-`0x2efd6b1300000000000000000000000000000000000000000000000000000000`, which is something along the lines of 2.12e29. Although in most cases, you would want to use logical right shift to extract the parameters. 
+`0x2efd6b1300000000000000000000000000000000000000000000000000000000`, which is something along the lines of 2.12e29. Although in most cases, you would want to use logical right shift to extract the parameters.
 
 Using this method, we can extract the parameters from the calldata manually, removing the need for zero-padding thus creating more efficient contracts (while reducing readability).
 
@@ -150,10 +150,13 @@ function validateSignature() external returns (bool) {
     return ecrecover(_msg, v, r, s) == addr;
 }
 ```
-The check for 
+
+The check for
+
 ```solidity
 addr != address(0)
 ```
+
 is crucial. This check prevents empty variables from being passed into ecrecover(), which would result in true.
 
 Using this method, we can add our parameters consecutively to calldata, without any zero padding.
@@ -229,6 +232,7 @@ DIV
 ```
 
 Before we start coding, I want to explain a few opcodes:
+
 - ```PUSH1 0x40``` Pushes 1 byte on the stack. PUSH2 pushes 2 bytes, PUSH3 pushes 3 bytes and so on. Each PUSH opcode costs 3 gas.
 - ```CALLVALUE``` Pushes the value of Ether sent to the contract on top of the stack. This opcode costs 2 gas.
 
