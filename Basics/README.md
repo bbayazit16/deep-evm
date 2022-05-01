@@ -20,7 +20,7 @@ Throughout the course of history, civilizations used different numeral systems. 
 
 As you probably know, computers use the base-2 (binary) numeral system. Before you understand how the EVM works, it is important that you know how base-16 and base-2 can be converted to base-10.
 
-![https://www.w3resource.com/w3r_images/javascript-math-image-exercise-2.svg]
+!(Image alt)[https://www.w3resource.com/w3r_images/javascript-math-image-exercise-2.svg]
 
 
 ## Hex, Byte, Bit, Binary
