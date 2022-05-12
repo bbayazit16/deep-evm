@@ -30,7 +30,7 @@ With four bits, the biggest number you can write is 1111. In base-10, it is 15.
 
 The maximum number you can write using X bits is 2^x - 1, where x is the number of bits. With six bits, the maximum number you can write is 2^6 - 1, which is 63. (111111 = 63).
 
-In Solidity and many other high-level smart contract languages, you can see the use of type uint256. Uint256 is the biggest number you can use in the EVM. It is capable of storing 256 bits (32 bytes). Uint256's max value is 2^256 - 1, which is 1.1579209e+77.
+In Solidity and many other high-level smart contract languages, you can see the use of type uint256. It is capable of storing 256 bits (32 bytes), hence the name uint<256>. Uint256 is the biggest number you can use in the EVM. The max value of uint256 is 2^256 - 1, which is 1.1579209e+77.
 
 ### Hex
 
@@ -42,6 +42,54 @@ Bytecodes are hex too! This means that all smart contracts are actually just HUG
 
 Hexadecimal works just like binary, with one minor difference: Instead of raising to the power of 2, numbers ar raised to the power of 16.
 
-## The Use Of Bytecode in the EVM
+You can also see some hexadecimal numbers starting with the 0x prefix. All it does is indicating that the given number is formatted in hex, nothing else. It is redundant and can be removed.
 
-The EVM is only capable of executing the EVM bytecode. It doesn't recognize Solidity, Vyper, or any other high-level language. So how do developers write smart contracts in Solidity?
+To understand hex better, you should try converting a few numbers using [this website](https://www.rapidtables.com/convert/number/hex-to-decimal.html).
+
+## The Bytecode
+
+The EVM (Ethereum Virtual Machine) is the computation engine of the Ethereum Blockchain. It is capable of executing EVM bytecode, which enables Ethereum to run smart contracts - unlike Bitcoin.
+
+The EVM bytecode is a series of hex codes. It looks something like this, in hexadecimal:
+
+```bytecode
+343d52593df3
+```
+
+When you write a smart contract in Solidity, the code will compile into a long bytecode. This bytecode is then deployed to the chain. The EVM is only capable of executing the EVM bytecode, it doesn't recognize the high level Vyper or Solidity languages.
+
+The EVM is turing complete (with the assumption that gas is *unlimited*), which basically means you can simulate a turing machine (compute any algorithm, in simple terms).
+
+INSERT OPCODE REPR. HERE
+
+## How The Bytecode is Executed
+
+### Storage
+
+Storage in the EVM can be divided into four locations:
+
+- The code, which can't be changed after deployed.
+- The stack, where temporary values can be pushed / popped.
+- The memory, where temporary values can be set.
+- The world chain state and global state, which contains information such as the block number, sender, tx calldata...
+
+#### The Code
+
+The bytecode deployed to Ethereum is immmutable, it can't be changed once deployed. Although code can be destroyed with selfdestruct, there are plans to deactivate selfdestruct in [EIP-4758.](https://eips.ethereum.org/EIPS/eip-4758)
+
+#### The Stack
+
+The EVM has a stack-based architecture. But what is a stack?
+
+Think of a pile of books.
+
+[A pile of books](https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg)
+
+If you want to take the second book from top, you would have to remove the topmost book first.
+If you want to create a pile of books, the first book you put on the desk would be the last book in the pile, aka the one in the lowest position. The last book you put on the top would be the topmost book.
+
+This is basically how a stack works, except the books are variables.
+
+This principle is called "last in, first out", or LIFO in short. The last element to be placed on the stack is the first element that is removed.
+
+[The stack](https://cdn.programiz.com/sites/tutorial2program/files/stack.png)

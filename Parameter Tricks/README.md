@@ -1,6 +1,6 @@
 # Taking Parameters Without Function Parameters
 
-Keep in mind that:
+Reminder:
 
 - 1 byte = 2 hex characters
 - 1 byte = 8 bits
