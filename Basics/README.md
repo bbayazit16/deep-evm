@@ -16,9 +16,9 @@ The EVM bytecode is a series of hex codes. It looks something like this:
 
 If you're not familiar with the terms hex, bytes, and bits, here's a quick explanation.
 
-There are different formats to represent numbers. In our daily lives, we use base-10 to indicate numbers, which means that numbers are composed of digits between 0 to 10. Base 2 is composed of digits 0 and 1, binary. On the other hand, base 16 is composed of digits 0 to 10 and a, b, c, d, e, f.
+There are different formats to represent numbers. In our daily lives, we use base-10 to indicate numbers, which means that numbers are composed of digits between 0 to 10. Base 2 is composed of digits 0 and 1, binary. On the other hand, base 16 is composed of digits 0 to 10 and a, b, c, d, e, f. Base 3 is composed of 0, 1, 2 and so on...
 
-Throughout the course of history, civilizations used different numeral systems. Mayans used [base-20](https://en.wikipedia.org/wiki/Maya_numerals), Sumerians used [base-60](https://en.wikipedia.org/wiki/Sexagesimal), and so on. Today, we use base-10, probably because we have ten fingers.
+Over the history civilizations used various numeral systems. Mayans used [base-20](https://en.wikipedia.org/wiki/Maya_numerals), Sumerians used [base-60](https://en.wikipedia.org/wiki/Sexagesimal), and so on. Today, we use base-10, probably because we have ten fingers.
 
 #### Binary
 
@@ -43,7 +43,6 @@ In Solidity and many other high-level smart contract languages, you can see the 
 #### Hex
 
 There is also another numeral system, commonly seen in the EVM. It is called the hexadecimal format, or base16. Hexadecimal numbers consist of digits 0-9 and letters a, b, c, d, e, f. A is used as 10, b 11, c 12, d 13, e 14 and f 15. As you may have noticed, Ethereum addresses are formatted in hexadecimal. They only have hexadecimal digits, which means that Ethereum addresses are actually just big numbers 🤯.
-
 
 ### The Use Of Bytecode in the EVM
 
