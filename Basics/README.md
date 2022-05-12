@@ -36,7 +36,7 @@ In Solidity and many other high-level smart contract languages, you can see the 
 
 There is also another numeral system, as seen in bytecodes. It is called the hexadecimal format (base-16), or often just hex in short. Hexadecimal numbers consist of digits 0-9 and letters a, b, c, d, e, f. A is used as 10, b 11, c 12, d 13, e 14 and f 15. As you may have noticed, Ethereum addresses are formatted in hexadecimal. They only have hexadecimal digits, which means that Ethereum addresses are actually just big numbers 🤯.
 
-Bytecodes are hex too! This means that all smart contracts are actually just HUGE numbers 🤯 (but they don't work that way).
+Bytecodes are hex too! This means that all smart contracts are actually just HUGE numbers 🤯 (but that number is meaningless).
 
 ![Hexadecimal to Decimal](https://media.geeksforgeeks.org/wp-content/uploads/hexaTodeci.png)
 
@@ -83,7 +83,7 @@ The EVM has a stack-based architecture. But what is a stack?
 
 Think of a pile of books.
 
-[A pile of books](https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg)
+![A pile of books](https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg)
 
 If you want to take the second book from top, you would have to remove the topmost book first.
 If you want to create a pile of books, the first book you put on the desk would be the last book in the pile, aka the one in the lowest position. The last book you put on the top would be the topmost book.
@@ -92,4 +92,4 @@ This is basically how a stack works, except the books are variables.
 
 This principle is called "last in, first out", or LIFO in short. The last element to be placed on the stack is the first element that is removed.
 
-[The stack](https://cdn.programiz.com/sites/tutorial2program/files/stack.png)
+![The stack](https://cdn.programiz.com/sites/tutorial2program/files/stack.png)
