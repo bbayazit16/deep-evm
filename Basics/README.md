@@ -25,6 +25,7 @@ Over the history civilizations used various numeral systems. Mayans used [base-2
 As you probably know, computers use the base-2 (binary) numeral system. Before you understand how the EVM works, it is important that you know how base-16 and base-2 can be converted to base-10.
 
 ![Binary to Decimal](https://www.w3resource.com/w3r_images/javascript-math-image-exercise-2.svg)
+Actually, when you think of it, the numbers in our daily lives work with the same logic. 128, for instance, is 10 x 10^2 + 2 x 10^1 + 8 x 10^0 => 100 + 20 + 8.
 
 The digit number is raised to the power of 2 and multiplied with the number in place of the digit. The rightmost digit's location is zero, and the leftmost digit's location is 7.
 
