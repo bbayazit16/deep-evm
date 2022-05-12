@@ -72,10 +72,10 @@ contract Validator {
         }
     }
 
-    // This exists in case someone wants to call directly from somewhere like Etherscan.
+    // This exists as a helper, to make fallback calls easier from block explorers like Etherscan.
     function callutil(bytes memory _data) external returns (bool) {
         (bool success, bytes memory result) = address(this).call(_data);
-        require(success, "Validator:callutil:: Invalid params");
+        require(success, "Validator::callutil: Invalid params");
         return abi.decode(result, (bool));
     }
 }
