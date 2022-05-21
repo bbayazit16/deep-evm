@@ -83,7 +83,7 @@ The EVM has a stack-based architecture. But what is a stack?
 
 Think of a pile of books.
 
-![A pile of books](https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg =100x100)
+<img src="https://media.wired.com/photos/5be4cd03db23f3775e466767/master/pass/books-521812297.jpg" alt="A pile of books" width="100" height="100">
 
 If you want to take the second book from top, you would have to remove the topmost book first.
 If you want to create a pile of books, the first book you put on the desk would be the last book in the pile, the one in the lowest position. The last book you put would be the topmost book.
