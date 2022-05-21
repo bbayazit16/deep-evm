@@ -56,11 +56,19 @@ The EVM bytecode is a series of hex codes. It looks something like this, in hexa
 343d52593df3
 ```
 
-When you write a smart contract in Solidity, the code will compile into a long bytecode. This bytecode is then deployed to the chain. The EVM is only capable of executing the EVM bytecode, it doesn't recognize the high level Vyper or Solidity languages.
+When you write a smart contract in Solidity, your code compiles down to a long bytecode. This bytecode is then deployed to the chain. The EVM is only capable of executing the EVM bytecode, it doesn't recognize the high level Vyper or Solidity languages.
 
 The EVM is turing complete (with the assumption that gas is *unlimited*), which basically means you can simulate a turing machine (compute any algorithm, in simple terms).
 
-INSERT OPCODE REPR. HERE
+Every byte (2 hexes) in the bytecode corresponds to one opcode (with the exception of the hard-coded push values, which we'll get into later). You don't have to memorize the corresponding operations for each byte to be a good developer. Just understanding what each operation does is enough. In order to better understand what each operation does, you should spend some time on [evm.codes](https://www.evm.codes/)! They provide explanations and a playground for each function.
+
+Let's break down a bytecooed to opcodes. For example:
+
+343d52593df3 => 34, 3d, 52, 59, 3d, f3 => CALLVALUE, RETURNDATASIZE, MSTORE, MSIZE, RETURNDATASIZE, RETURN.
+
+These operations are simply functions, and their specification can all be found in the [Ethereum Yellow Paper, starting from page 30](https://ethereum.github.io/yellowpaper/paper.pdf).
+
+Each operation does something, either manipulates the stack, the memory, or the state of the EVM. In these tutorials, I'll aim to explain every operation and how they work.
 
 ## How The Bytecode is Executed
 
